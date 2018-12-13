@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectName>
+    <testcase id="ProjectName.testcases.testcase.DemoTestCase" index="1">
+        <emailTo>abc@gmail.com</emailTo>
+        <subject>TestEmail</subject>
+
+    </testcase>
+
+</ProjectName>
