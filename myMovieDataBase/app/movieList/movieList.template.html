@@ -1,0 +1,32 @@
+<div class="row header">
+    <div class="col-xs-8 col-sm-8">
+       <input type="text" placeholder="Search by movie name" class="form-control" id="inp" ng-model="$ctrl.query.show_title">
+    </div>
+    <div class="col-xs-4 col-sm-4">
+        <p>Sort by: <select ng-model="$ctrl.sortBy" ng-change="$ctrl.showMovieInfo(0, $ctrl.sortBy)">
+            <option value="rating">Rating</option>
+            <option value="show_title">Name</option>
+            </select>
+        </p>
+    </div>
+</div>
+<div class="row">
+	<div class="col-xs-8">
+		<div class="well" ng-repeat="movie in $ctrl.movieList | orderBy: $ctrl.sortBy | filter:$ctrl.query.show_title">
+				<a href="" ng-click="$ctrl.showMovieInfo($index, $ctrl.sortBy)">{{movie.show_title}} ({{movie.release_year}})</a>
+
+				<div ng-class="{'show-movie-info': $index == $ctrl.selectedIndex}">
+					<p><span>{{movie.runtime}}</span> | <span>{{movie.category}}</span><span class="rating pull-right"><span class="rating-icon">&#9733;</span>{{movie.rating}}</span></p>
+					<p>Stars: {{movie.show_cast}}</p>
+					<p>Directed by: {{movie.director}}</p>
+					<p>Summary: {{movie.summary}}</p>p>
+				</div>
+		</div>
+	</div>
+
+	<div class="col-xs-4">
+		<div class="imgage-holder">
+			<img ng-src="{{$ctrl.mainImage}}">
+		</div>
+	</div>
+</div>
